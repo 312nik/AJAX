@@ -1,0 +1,37 @@
+@SpringBootApplication
+public class DestibnationApplication{
+public static void main (String[] args){
+SpringApplication.run(DestibnationApplication.class,args )
+}
+
+@Bean
+public Docket SwaggerConfig (){
+return new Docket(DocumentationType.SWAGGER_2)
+.select()
+.path(PathSelectors.ant("/destinations/*"))
+.apis(RequestHandlerSelector.basePackage("  родительский  пакт   основной  путь time 22,00 "))
+.build()
+.apiInfo(apiCustomData());
+}
+
+
+private ApiInfo apiCustomData(){
+
+return  new ApiInfo(
+"Destination Api Applcation ",
+"Destination Documentation",
+"0.1",
+"Destination Service Terms",
+"Contact",
+"Think Constraction License",
+"",
+Collections.emptyList()
+
+)
+}
+
+
+
+
+
+}

@@ -2,6 +2,7 @@
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
+@Table(name="destinations")
 public Destination {
 @Id
 private Long id;

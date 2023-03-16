@@ -1,0 +1,35 @@
+public interface DestinationController {
+
+
+@RestController
+
+@GetMapping ("/destinations")
+public List <Destination> getAllDestination (){}
+
+@GetMapping ("/destinations/{id}")
+public Destination getDestinationById (@pathvariable(value="id") Long id){}
+
+@GetMapping ("/destinations/{city}")
+public Destination getDestinationByCity (@pathvariable(value="city") String city){}
+
+@GetMapping ("/destinations/{country}")
+public Destination getDestinationByCountry (@pathvariable(value="countryName") String countryName){}
+
+@PostMapping ("/destinations")
+public Destination createDestination (@Requestbody Destination destination){}
+
+@PutMapping ("/destinations")
+public Destination updateDestination (@Requestbody Destination destination){}
+
+@DeleteMapping ("/destinations/{id}")
+public  deleteDestination (@pathvariable(value="id") Long id){}
+
+
+
+
+
+
+
+
+
+}

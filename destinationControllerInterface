@@ -4,24 +4,31 @@ public interface DestinationController {
 @RestController
 
 @GetMapping ("/destinations")
+@ApiOperation(value="destination ", notes= "Return  list  of  Destination", response= ResponseDto.class)
 public List <Destination> getAllDestination (){}
 
 @GetMapping ("/destinations/{id}")
+@ApiOperation(value="destination id", notes= "Provide destination details", response= ResponseDto.class)
 public Destination getDestinationById (@pathvariable(value="id") Long id){}
 
 @GetMapping ("/destinations/{city}")
+@ApiOperation(value="destination city", notes= "Provide destination details", response= ResponseDto.class)
 public Destination getDestinationByCity (@pathvariable(value="city") String city){}
 
 @GetMapping ("/destinations/{country}")
+@ApiOperation(value="destination country", notes= "Provide destination details", response= ResponseDto.class)
 public Destination getDestinationByCountry (@pathvariable(value="countryName") String countryName){}
 
 @PostMapping ("/destinations")
+@ApiOperation(value="destination id", notes= "Provide destination details", response= ResponseDto.class)
 public Destination createDestination (@Requestbody Destination destination){}
 
 @PutMapping ("/destinations")
+@ApiOperation(value="destination id", notes= "Provide destination details", response= ResponseDto.class)
 public Destination updateDestination (@Requestbody Destination destination){}
 
 @DeleteMapping ("/destinations/{id}")
+@ApiOperation(value="destination id", notes= "Provide destination details", response= ResponseDto.class)
 public  deleteDestination (@pathvariable(value="id") Long id){}
 
 

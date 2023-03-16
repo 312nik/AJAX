@@ -29,6 +29,6 @@ private String arportCode;
 @Size(min = 2, max = 4)(message = "Timezone must have format XX,XX11,XX1X")
 @Pattern ( [A-Z]{2}|[A-Z]{2}+[0-9]{2}|[A-Z]{2}+[0-9]{1}+[A-Z]{1}) (message = "Airport code must have format XX,XX11,XX1X")
 private String timezone;
-// getter setter constriction
+// getter setter construction
 
 }

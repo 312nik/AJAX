@@ -21,10 +21,10 @@ private String airportName;
 @Size(min = 3, max = 3)(message = "Airport code must have fopmat XXX")
 @Pattern ( [A-Z]{3}) (message = "Airport code must have fopmat XXX")
 private String arportCode;
-//A code of 2-4 characters (letters of the Latin alphabet and numbers), which is assigned to a country or part of a territory within a country, in which local time is calculated in a uniform way.
+//IATA Code.A code of 2-4 characters (letters of the Latin alphabet and numbers), which is assigned to a country or part of a territory within a country, in which local time is calculated in a uniform way.
 @NotBlank(message = "Timezone cannot be null")
 @Size(min = 2, max = 4)(message = "Timezone must have fopmat XX,XX11,XX1X")
-@Pattern ( [A-Z]{2}||) (message = "Airport code must have fopmat XXX")
+@Pattern ( [A-Z]{2}|[A-Z]{2}+2 цифры| [A-Z]{2}+ цифра +[A-Z]{1}) (message = "Airport code must have fopmat XX,XX11,XX1X")
 private String timezone;
 // getter setter constriction
 

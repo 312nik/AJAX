@@ -1,0 +1,62 @@
+package ru.uxair.flight_service.entity;
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import javax.persistence.*;
+
+
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+@Entity
+@Table(name = "destinations")
+@ApiModel(description="This table holds destinations information.")
+public class Destination {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long Id;
+    private String city;
+    @Column(name="country_code")
+    private String countryCode;
+    @Column(name="country_name")
+    private String countryName;
+    @Column(name="airport_name")
+    private String airportName;
+    @Column(name="airport_code")
+    private String airportCode;
+    private String timezone;
+
+
+}
+/*
+@Entity
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Table(name="destinations")
+@ApiModel(description="This table holds destinations information.")
+public Destination {
+@Id
+@ApimodelProperty(notes="This is Destination id.It shall be uniqe")
+private Long id;
+@NotNull (message = "Name of city cannot be null")
+private String city;
+@ApiModelProperty(notes="IATA Code. 2-letter country codes are used according to the ISO 3166-1 alpha-2 list.")
+@NotBlank(message = "Country code cannot be null")
+@Pattern ( [A-Z]{2}) (message = "Country code must have format XX")
+private String countryCode;
+@NotBlank(message = "Country name cannot be null")
+private String contryName;
+@ApiModelProperty(notes="IATA Code. A code of 2-4 characters (letters of the Latin alphabet and numbers), which is assigned to a country or part of a territory within a country in which local time is calculated in a uniform way.")
+@NotBlank(message = "Airport name cannot be null")
+private String airportName;
+@ApiModelProperty(notes="IATA Code. A code of 3 letters of the Latin alphabet that can be assigned to an airport, city, railway station, sea or river port, or other major transport hub.")
+@NotBlank(message = "Airport code cannot be null")
+@Pattern ( [A-Z]{3}) (message = "Airport code must have format XXX")
+private String arportCode;
+@ApiModelProperty(notes="IATA Code.A code of 2-4 characters (letters of the Latin alphabet and numbers), which is assigned to a country or part of a territory within a country, in which local time is calculated in a uniform way.")
+@NotBlank(message = "Timezone cannot be null")
+@Pattern ( [A-Z]{2}|[A-Z]{2}+[0-9]{2}|[A-Z]{2}+[0-9]{1}+[A-Z]{1}) (message = "Airport code must have format XX or XX11 or XX1X")
+private String timezone;*/

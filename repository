@@ -1,0 +1,12 @@
+package ru.uxair.flight_service.repository;
+
+
+import org.springframework.data.jpa.repository.JpaRepository;
+import ru.uxair.flight_service.entity.Destination;
+
+public interface DestinationRepository extends JpaRepository<Destination, Long> {
+
+    Destination findDestinationByCity(String city);
+    Destination findDestinationByCountryName(String countryName);
+
+}

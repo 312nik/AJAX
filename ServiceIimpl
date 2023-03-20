@@ -1,0 +1,71 @@
+import java.util.List;
+@Service
+public class DestinationServiceImpl implements DestinationService{
+
+    private final DestinationRepository destinationRepository;
+
+    public DestinationServiceImpl(DestinationRepository destinationRepository) {
+        this.destinationRepository = destinationRepository;
+    }
+
+
+    @Override
+    public List<Destination> findAllDestinations() {
+        return null;
+    }
+
+    @Override
+    public Destination findDestinationById(Long id) {
+        return null;
+    }
+
+    @Override
+    public List<Destination> findDestinationByCity(String city) {
+        return null;
+    }
+
+    @Override
+    public List<Destination> findDestinationByCountryName(String countryName) {
+        return null;
+    }
+
+    @Override
+    public void saveDestination(Destination destination) {
+
+    }
+
+    /*@Override
+        public List<Destination> indAllDestinations() {
+            return destinationRepository.findAll();
+        }
+
+        @Override
+        public Destination findDestinationById(Long id) {
+            return destinationRepository.getById(id);
+        }
+
+        @Override
+        public Destination findDestinationByCity(String city) {
+            return destinationRepository.findDestinationByCity(city);
+        }
+
+        @Override
+        public Destination findDestinationByCountryName(String countryName) {
+            return destinationRepository.findDestinationByCountryName(countryName);
+        }
+
+        @Override
+        public void saveDestination(Destination destination) {
+            destinationRepository.save(destination);
+        }
+    */
+    @Override
+    public void updateDestination(Destination destination) {
+        destinationRepository.save(destination);
+    }
+
+    @Override
+    public void deleteDestination(Long id) {
+        destinationRepository.deleteById(id);
+    }
+}

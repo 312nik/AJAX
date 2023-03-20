@@ -1,0 +1,90 @@
+import ru.uxair.flight_service.service.DestinationService;
+import java.util.List;
+
+@RestController
+@RequestMapping("api/destinations")
+public class DestinationControllerImpl implements DestinationController{
+    private final DestinationService destinationService;
+
+    public DestinationControllerImpl(DestinationService destinationService) {
+        this.destinationService = destinationService;
+    }
+
+
+    @Override
+    public List<DestinationDto> getAllDestination() {
+        return null;
+    }
+
+    @Override
+    public Destination getDestinationById(Long id) {
+        return null;
+    }
+
+    @Override
+    public Destination getDestinationByCity(String city) {
+        return null;
+    }
+
+    @Override
+    public Destination getDestinationByCountry(String countryName) {
+        return null;
+    }
+
+    @Override
+    public Destination createDestination(Destination destination) {
+        return null;
+    }
+
+    @Override
+    public Destination updateDestination(Destination destination) {
+        return null;
+    }
+
+    @Override
+    public void deleteDestination(Long id) {
+
+    }
+}
+
+    /*@GetMapping
+
+    public ResponseEntity <List<Destination>> getAllDestinations() {
+        List<Destination> destination = destinationService.findAll();
+        return new ResponseEntity<>(destination, HttpStatus.OK);
+    }
+
+    @GetMapping("/{id}")
+    public ResponseEntity <Destination> getDestinationById(@PathVariable("id") Long id) {
+        Destination destination = destinationService.findById(id);
+        return new ResponseEntity<>(destination, HttpStatus.OK);
+    }
+
+    @GetMapping("/{city}")
+    public ResponseEntity <Destination> getDestinationByCity(@PathVariable("city") String city) {
+        Destination destination = destinationService.findByCity(city);
+        return new ResponseEntity<>(destination, HttpStatus.OK);
+    }
+
+    @GetMapping("/{countryName}")
+    public ResponseEntity <Destination> getDestinationByCountryName(@PathVariable("countryName") String countryName) {
+        Destination destination = destinationService.findByCountryName(countryName);
+        return new ResponseEntity<>(destination, HttpStatus.OK);
+    }
+
+    @PostMapping
+    public ResponseEntity<HttpStatus> addDestination(@RequestBody Destination destination) {
+        destinationService.saveDestination(destination);
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
+    @PatchMapping("/{id}")
+    public ResponseEntity<HttpStatus> editDestination(@RequestBody Destination destination) {
+        destinationService.updateDestination(destination);
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
+    @DeleteMapping("/{id}")
+    public ResponseEntity<HttpStatus> deleteDestination(@PathVariable("id") Long id)  {
+        destinationService.deleteDestination(id);
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
+}

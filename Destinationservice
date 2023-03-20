@@ -1,0 +1,26 @@
+package ru.uxair.flight_service.service;
+
+
+import ru.uxair.flight_service.entity.Destination;
+
+import java.util.*;
+
+public interface DestinationService {
+
+    List<Destination> findAllDestinations();
+
+    Destination findDestinationById(Long id);
+
+    List <Destination> findDestinationByCity(String city);
+
+    List <Destination> findDestinationByCountryName(String countryName);
+
+    void saveDestination(Destination destination);
+
+    void updateDestination(Destination destination);
+
+    void deleteDestination(Long id);
+}
+
+
+

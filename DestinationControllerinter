@@ -1,0 +1,39 @@
+package ru.uxair.flight_service.controller;
+
+import org.springframework.web.bind.annotation.*;
+import ru.uxair.flight_service.entity.Destination;
+
+
+public interface DestinationController {
+
+
+    @RestController
+
+    @GetMapping("/destinations")
+    @ApiOperation(value="destination ", notes= "Return  list  of  Destination", response= ResponseDto.class)
+    public List <Destination> getAllDestination (){}
+
+    @GetMapping ("/destinations/{id}")
+    @ApiOperation(value="destination id", notes= "Provide destination details", response= ResponseDto.class)
+    public Destination getDestinationById (@PathVariable(value="id") Long id){}
+
+    @GetMapping ("/destinations/{city}")
+    @ApiOperation(value="destination city", notes= "Provide destination details", response= ResponseDto.class)
+    public Destination getDestinationByCity (@PathVariable (value="city") String city){}
+
+    @GetMapping ("/destinations/{country}")
+    @ApiOperation(value="destination country", notes= "Provide destination details", response= ResponseDto.class)
+    public Destination getDestinationByCountry (@PathVariable(value="countryName") String countryName){}
+
+    @PostMapping ("/destinations")
+    @ApiOperation(value="destination id", notes= "Provide destination details", response= ResponseDto.class)
+    public Destination createDestination (@RequestBody Destination destination){}
+
+    @PutMapping ("/destinations")
+    @ApiOperation(value="destination id", notes= "Provide destination details", response= ResponseDto.class)
+    public Destination updateDestination (@RequestBody Destination destination){}
+
+    @DeleteMapping("/destinations/{id}")
+    @ApiOperation(value="destination id", notes= "Provide destination details", response= ResponseDto.class)
+    public void deleteDestination (@PathVariable (value="id") Long id){}
+}

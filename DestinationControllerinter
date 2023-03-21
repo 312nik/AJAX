@@ -44,7 +44,7 @@ public interface DestinationController {
                             schema = @Schema(implementation = ErrorResponseDto.class))})
     })
     
-    public Destination getDestinationById (@PathVariable(value="id") Long id){}
+    public Destination getDestinationById (@PathVariable(value="id") String id){}
 
     @GetMapping ("/{city}")
     @ApiOperation(value="destination city", notes= "Provide destination details", response= ResponseDto.class)

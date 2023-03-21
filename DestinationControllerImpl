@@ -3,46 +3,61 @@ import java.util.List;
 
 @RestController
 @RequestMapping("api/destinations")
+
 public class DestinationControllerImpl implements DestinationController{
+
     private final DestinationService destinationService;
+    private final DestinationMapper destinationMapper;
 
-    public DestinationControllerImpl(DestinationService destinationService) {
+    public DestinationControllerImpl(DestinationService destinationService,DestinationMapper destinationMapper) {
         this.destinationService = destinationService;
+        this.destinationMapper = destinationMapper;
     }
 
 
     @Override
-    public List<DestinationDto> getAllDestination() {
+    ResponseEntity <DestinationDto> getAllDestination (){
+        return ;
+    }
+
+    @Override
+    public Destination getDestinationById (@PathVariable(value="id") String id) {
+     return ResponseEntity.ok(passengerMapper.convertToPassengerDTO(passengerService.getPassenger(id)));
+    }
+
+    @Override
+      public ResponseEntity <DestinationDto>  getDestinationByCity (@PathVariable (value="city") String city) {
+        return null;
+    }
+    
+        @Override
+      public ResponseEntity <DestinationDto>  getDestinationByCountry (@PathVariable (value="countryName") String countryName) {
         return null;
     }
 
     @Override
-    public Destination getDestinationById(Long id) {
+         ResponseEntity <HttpStatus> createDestination (@Parameter(description = "destinationDto", required = true)
+                                               @RequestBody @Valid DestinationDto destinationDto) {
         return null;
     }
 
     @Override
-    public Destination getDestinationByCity(String city) {
+    ResponseEntity <HttpStatus> createDestination (@Parameter(description = "destinationDto", required = true)
+                                               @RequestBody @Valid DestinationDto destinationDto) {
         return null;
     }
 
     @Override
-    public Destination getDestinationByCountry(String countryName) {
+    ResponseEntity<HttpStatus> updateDestination (@Parameter(description = "Unique identifier of airport", required = true)
+            @NonNull @PathVariable("id") String id,
+            @Parameter(description = "DestinationDTO", required = true)
+            @RequestBody @Valid DestinationDto destinationDto) {
         return null;
     }
 
     @Override
-    public Destination createDestination(Destination destination) {
-        return null;
-    }
-
-    @Override
-    public Destination updateDestination(Destination destination) {
-        return null;
-    }
-
-    @Override
-    public void deleteDestination(Long id) {
+    ResponseEntity<HttpStatus> deleteDestination (@NonNull @PathVariable("id")
+                                                  @Parameter(description = "Unique identifier of passenger") String id)) {
 
     }
 }

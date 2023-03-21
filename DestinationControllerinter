@@ -27,7 +27,7 @@ public interface DestinationController {
                     content = {@Content(mediaType = "application/json",
                             schema = @Schema(implementation = ErrorResponseDto.class))})
     })
-    public List <Destination> getAllDestination (){}
+     public ResponseEntity <DestinationDto> getAllDestination (){}
 
     @GetMapping ("/{id}")
     @ApiOperation(value="destination id", notes= "Provide destination details", response= ResponseDto.class)
@@ -44,7 +44,7 @@ public interface DestinationController {
                             schema = @Schema(implementation = ErrorResponseDto.class))})
     })
     
-    public Destination getDestinationById (@PathVariable(value="id") String id){}
+    public ResponseEntity getDestinationById (@PathVariable(value="id") String id){}
 
     @GetMapping ("/{city}")
     @ApiOperation(value="destination city", notes= "Provide destination details", response= ResponseDto.class)
@@ -61,7 +61,7 @@ public interface DestinationController {
                     content = {@Content(mediaType = "application/json",
                             schema = @Schema(implementation = ErrorResponseDto.class))})
     })
-    public List <DestinationDto> getDestinationByCity (@PathVariable (value="city") String city){}
+   public ResponseEntity <DestinationDto>  getDestinationByCity (@PathVariable (value="city") String city){}
 
     @GetMapping ("/destinations/{country}")
     @ApiOperation(value="destination country", notes= "Provide destination details", response= ResponseDto.class)
@@ -78,7 +78,7 @@ public interface DestinationController {
                     content = {@Content(mediaType = "application/json",
                             schema = @Schema(implementation = ErrorResponseDto.class))})
     })
-    public List <DestinationDto> getDestinationByCountry (@PathVariable(value="countryName") String countryName){}
+     public ResponseEntity <DestinationDto>  getDestinationByCountry (@PathVariable(value="countryName") String countryName){}
 
     @PostMapping ()
     @ApiOperation(value="destination id", notes= "Provide destination details", response= ResponseDto.class)

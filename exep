@@ -1,4 +1,4 @@
-/// @JsonInclude(JsonInclude.Include.NON_NULL) - json  возвращается  без  пустых строк
+/// @JsonInclude(JsonInclude.Include.NON_NULL) - json  возвращается  без  пустых строк вешаем  на  исходный exeption
 
 @restcontroller
 public class ErrorHandler implements ErrorController (){

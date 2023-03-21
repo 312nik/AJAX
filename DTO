@@ -4,7 +4,7 @@
 @NoArgsConstructor
 @AllArgsConstructor
 @ApiModel(description="This is DestinationDto holds destinations information for сontrollers")
-public Destination {
+public class DestinationDto {
 
 
 @Pattern ([A-Z]{3}) (message = "Airport code must have format XXX")

@@ -1,1 +1,28 @@
 
+public class UniqueAirportCodeValidator implaments UniqueAirportCode <UniqueAirportCode, Spring>{
+
+@Autowired
+DestinationService destinationservice;
+
+
+
+public boolean isValid (String  id, ConstrainValidationContext context){
+
+Destination inDB= destinationservice.findById(id);
+if  (inDB== null) {
+return true;
+}
+
+return false;
+}
+
+
+
+}
+
+
+
+
+property 
+
+spring.jpa.properties.javax.persistance.validation.mode=none

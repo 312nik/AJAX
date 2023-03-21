@@ -22,7 +22,7 @@ public class DestinationControllerImpl implements DestinationController{
 
     @Override
     public Destination getDestinationById (@PathVariable(value="id") String id) {
-     return ResponseEntity.ok(passengerMapper.convertToPassengerDTO(passengerService.getPassenger(id)));
+     return ResponseEntity.ok(destintionMapper.convertTodestinationDto(destinationService.getDestination(id)));
     }
 
     @Override

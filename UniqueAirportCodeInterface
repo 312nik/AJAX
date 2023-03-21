@@ -1,0 +1,15 @@
+@Target({ElementType.Field})
+@Retention(RetentionPolice.Runtime)
+@Constrint (validatedBy="UniqAirportValidater.class")
+
+
+
+
+public interface UniqueAirportCode{
+
+String message() default "This airport code is in use";
+Class <?> [] groups () default{};
+Class<? extends Payload> [] payload () default{};
+
+
+}

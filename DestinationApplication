@@ -18,8 +18,8 @@ return new Docket(DocumentationType.SWAGGER_2)
 private ApiInfo apiCustomData(){
 
 return  new ApiInfo(
-"Destination Api Applcation ",
-"Destination Documentation",
+"Aircraft UX Air",
+"Documentation",
 "0.1",
 "Destination Service Terms",
 "Contact",

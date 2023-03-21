@@ -1,0 +1,13 @@
+@Component
+@AllArgsConstructor
+public class DestinationMapper {
+    private final ModelMapper modelMapper;
+
+    public Destination convertToDestination(DestinationDto destinationDto) {
+        return modelMapper.map( destinationDto, Destination.class);
+    }
+
+    public  DestinationDTO convertTo DestinationDto( Destination destination) {
+        return modelMapper.map(destination, DestinationDto.class);
+    }
+}

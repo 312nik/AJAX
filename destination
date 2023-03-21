@@ -8,7 +8,7 @@ public  Destination {
 @Id
 @ApiModelProperty(notes="This is Destination Id.It shall be uniqe.
 IATA Code. A code of 3 letters of the Latin alphabet that can be assigned to an airport, city, railway station, sea or river port, or other major transport hub.")
-private String arportCode;
+private String airportCode;
 
 @ApiModelProperty(notes="Сontains the name of the city where the airport is located")
 private String city;

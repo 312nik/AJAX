@@ -1,0 +1,31 @@
+
+
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@ApiModel(description="This is DestinationDto holds destinations information for сontrollers")
+public Destination {
+
+
+@Pattern ([A-Z]{3}) (message = "Airport code must have format XXX")
+private String arportCode;
+
+@NotBlank (message = "Name of city cannot be empty")
+private String city;
+
+
+@Pattern ( [A-Z]{2}) (message = "Country code should be in the format XX")
+private String countryCode;
+
+@NotBlank(message = "Country name cannot be empty")
+private String contryName;
+
+@NotBlank(message = "Airport name cannot be empty")
+private String airportName;
+
+
+@Pattern ( [A-Z]{2}|[A-Z]{2}+[1-9]{2}|[A-Z]{2}+[1-9]{1}+[A-Z]{1}) (message = "Airport code should be in the format XX or XX11 or XX1X")
+private String timezone;
+// getter setter construction
+
+}

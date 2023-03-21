@@ -3,7 +3,7 @@
 @NoArgsConstructor
 @AllArgsConstructor
 @Table(name="destinations")
-@ApiModel(description="This table holds destinations information.")
+@ApiModel(description="This table holds destinations information  used The International Air Transport Association (IATA) cpecification ")
 public  Destination {
 @Id
 @ApiModelProperty(notes="This is Destination Id.It shall be uniqe.

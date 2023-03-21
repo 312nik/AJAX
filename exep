@@ -1,0 +1,27 @@
+/// @JsonInclude(JsonInclude.Include.NON_NULL) - json  возвращается  без  пустых строк
+
+@restcontroller
+public class ErrorHandler implements ErrorController (){
+@Autowared
+private ErrorAttributes errorAttribute;
+@RequestMapping("/error")
+public ApiError hendlerError (Webrequest webRequest){
+Map <String,Object> attributes =errorAttribute.errorAttributes(webRequest, EroorAttributeOptions.of(Include.MESSAGE,Inglude.BINDING_ERRORS));
+String message=(String) attributes.get("message");
+int status= (Integer) attributes.get("status");
+ApiError = new apiError (massage,status);
+if (attributes.containsKey("error")){
+@SuppresWarnings("uncheked")
+List<FieldError>fieldEroors = (List<FieldError>) attribute.get("errors")'
+Map <String,String> validationsErrors=new HashMap<>();
+for(FieldError fieldError: fieldEroors){
+validationEroors.put (fieldError.getField(), fieldError.getDefaultMassege());
+error.setValidationErrors(validationEroors);
+}
+
+return errors;
+}
+
+}
+
+}

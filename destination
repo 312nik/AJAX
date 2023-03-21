@@ -16,7 +16,7 @@ private String city;
 @ApiModelProperty(notes="IATA Code. 2-letter country codes are used according to the ISO 3166-1 alpha-2 list.")
 private String countryCode;
 
-@ApiModelProperty(notes="Uses a short name in accordance with the Russian classification of the countries of the world")
+@ApiModelProperty(notes="Uses a short name of country in accordance with the Russian classification of the countries of the world")
 private String contryName;
 
 @ApiModelProperty(notes="IATA Code. A code of 2-4 characters (letters of the Latin alphabet and numbers), which is assigned to a country or part of a territory within a country in which local time is calculated in a uniform way.")

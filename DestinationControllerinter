@@ -4,36 +4,134 @@ import org.springframework.web.bind.annotation.*;
 import ru.uxair.flight_service.entity.Destination;
 
 
+@Tag(name = "Destination", description = "Methods for gestination operation")
+@RequestMapping("/api/destinations")
+
 public interface DestinationController {
 
 
-    @RestController
+    
 
-    @GetMapping("/destinations")
+
+
     @ApiOperation(value="destination ", notes= "Return  list  of  Destination", response= ResponseDto.class)
+    @Operation(summary = "Method for get all  destinations")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Successful",
+                    content = {@Content(mediaType = "application/json",
+                            schema = @Schema(implementation = destinationDto.class))}),
+            @ApiResponse(responseCode = "400", description = "Incorrect data",
+                    content = {@Content(mediaType = "application/json",
+                            schema = @Schema(implementation = ErrorResponseDto.class))}),
+            @ApiResponse(responseCode = "500", description = "Incorrect or non-existent field",
+                    content = {@Content(mediaType = "application/json",
+                            schema = @Schema(implementation = ErrorResponseDto.class))})
+    })
     public List <Destination> getAllDestination (){}
 
-    @GetMapping ("/destinations/{id}")
+    @GetMapping ("/{id}")
     @ApiOperation(value="destination id", notes= "Provide destination details", response= ResponseDto.class)
+    @Operation(summary = "Method for get destination by Id")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Successful",
+                    content = {@Content(mediaType = "application/json",
+                            schema = @Schema(implementation = destinationDto.class))}),
+            @ApiResponse(responseCode = "400", description = "Incorrect data",
+                    content = {@Content(mediaType = "application/json",
+                            schema = @Schema(implementation = ErrorResponseDto.class))}),
+            @ApiResponse(responseCode = "500", description = "Incorrect or non-existent field",
+                    content = {@Content(mediaType = "application/json",
+                            schema = @Schema(implementation = ErrorResponseDto.class))})
+    })
+    
     public Destination getDestinationById (@PathVariable(value="id") Long id){}
 
-    @GetMapping ("/destinations/{city}")
+    @GetMapping ("/{city}")
     @ApiOperation(value="destination city", notes= "Provide destination details", response= ResponseDto.class)
-    public Destination getDestinationByCity (@PathVariable (value="city") String city){}
+    @Operation(summary = "Method for get all  destinations")
+        @Operation(summary = "Method for a get destinations by city")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Successful",
+                    content = {@Content(mediaType = "application/json",
+                            schema = @Schema(implementation = destinationDto.class))}),
+            @ApiResponse(responseCode = "400", description = "Incorrect data",
+                    content = {@Content(mediaType = "application/json",
+                            schema = @Schema(implementation = ErrorResponseDto.class))}),
+            @ApiResponse(responseCode = "500", description = "Incorrect or non-existent field",
+                    content = {@Content(mediaType = "application/json",
+                            schema = @Schema(implementation = ErrorResponseDto.class))})
+    })
+    public List <DestinationDto> getDestinationByCity (@PathVariable (value="city") String city){}
 
     @GetMapping ("/destinations/{country}")
     @ApiOperation(value="destination country", notes= "Provide destination details", response= ResponseDto.class)
-    public Destination getDestinationByCountry (@PathVariable(value="countryName") String countryName){}
+    
+     @Operation(summary = "Method for a get destination by country  ")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Successful",
+                    content = {@Content(mediaType = "application/json",
+                            schema = @Schema(implementation = destinationDto.class))}),
+            @ApiResponse(responseCode = "400", description = "Incorrect data",
+                    content = {@Content(mediaType = "application/json",
+                            schema = @Schema(implementation = ErrorResponseDto.class))}),
+            @ApiResponse(responseCode = "500", description = "Incorrect or non-existent field",
+                    content = {@Content(mediaType = "application/json",
+                            schema = @Schema(implementation = ErrorResponseDto.class))})
+    })
+    public List <DestinationDto> getDestinationByCountry (@PathVariable(value="countryName") String countryName){}
 
-    @PostMapping ("/destinations")
+    @PostMapping ()
     @ApiOperation(value="destination id", notes= "Provide destination details", response= ResponseDto.class)
-    public Destination createDestination (@RequestBody Destination destination){}
+     @Operation(summary = "Method for create destination")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Successful",
+                    content = {@Content(mediaType = "application/json",
+                            schema = @Schema(implementation = destinationDto.class))}),
+            @ApiResponse(responseCode = "400", description = "Incorrect data",
+                    content = {@Content(mediaType = "application/json",
+                            schema = @Schema(implementation = ErrorResponseDto.class))}),
+            @ApiResponse(responseCode = "500", description = "Incorrect or non-existent field",
+                    content = {@Content(mediaType = "application/json",
+                            schema = @Schema(implementation = ErrorResponseDto.class))})
+    })
+    
+     ResponseEntity <HttpStatus> createDestination (@Parameter(description = "destinationDto", required = true)
+                                               @RequestBody @Valid DestinationDto destinationDto){}
 
-    @PutMapping ("/destinations")
+    @PutMapping ("/{id})
     @ApiOperation(value="destination id", notes= "Provide destination details", response= ResponseDto.class)
-    public Destination updateDestination (@RequestBody Destination destination){}
+        @Operation(summary = "Method for update destination by country  ")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Successful",
+                    content = {@Content(mediaType = "application/json",
+                            schema = @Schema(implementation = destinationDto.class))}),
+            @ApiResponse(responseCode = "400", description = "Incorrect data",
+                    content = {@Content(mediaType = "application/json",
+                            schema = @Schema(implementation = ErrorResponseDto.class))}),
+            @ApiResponse(responseCode = "500", description = "Incorrect or non-existent field",
+                    content = {@Content(mediaType = "application/json",
+                            schema = @Schema(implementation = ErrorResponseDto.class))})
+    })
+    ResponseEntity<HttpStatus> updateDestination (@Parameter(description = "Unique identifier of airport", required = true)
+            @NonNull @PathVariable("id") String id,
+            @Parameter(description = "DestinationDTO", required = true)
+            @RequestBody @Valid DestinationDto destinationDto){}
 
-    @DeleteMapping("/destinations/{id}")
+    @DeleteMapping("/{id}")
     @ApiOperation(value="destination id", notes= "Provide destination details", response= ResponseDto.class)
-    public void deleteDestination (@PathVariable (value="id") Long id){}
+        @Operation(summary = "Method for a get destination by country  ")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Successful",
+                    content = {@Content(mediaType = "application/json",
+                            schema = @Schema(implementation = destinationDto.class))}),
+            @ApiResponse(responseCode = "400", description = "Incorrect data",
+                    content = {@Content(mediaType = "application/json",
+                            schema = @Schema(implementation = ErrorResponseDto.class))}),
+            @ApiResponse(responseCode = "500", description = "Incorrect or non-existent field",
+                    content = {@Content(mediaType = "application/json",
+                            schema = @Schema(implementation = ErrorResponseDto.class))})
+    })
+    
+     ResponseEntity<HttpStatus> deleteDestination (@NonNull @PathVariable("id")
+                                                  @Parameter(description = "Unique identifier of passenger") String id)){}
 }

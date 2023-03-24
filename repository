@@ -8,5 +8,9 @@ public interface DestinationRepository extends JpaRepository<Destination, String
 
     List <Destination> findByOrderByCity(String city);
     List <Destination> findByOrderByCountryName(String countryName);
+    
+    //поиск по имени содержащему name, отсортированный по колонке name
+   List<Destination> findByCityContainingIgnoreCaseOrderByCity(String city);
+   List<Destination> findByCountryNameContainingIgnoreCaseOrderByCountryNameAndCity(String countryName);
 
 }

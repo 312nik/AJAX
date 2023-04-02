@@ -1,0 +1,7 @@
+databaseChangeLog:
+  - changeSet:
+      id: 1.0
+      author: Ivan
+      tag: create-table
+  - include:
+      file: db/changeSet/20230327-flight-service-add-destination-entity.yaml

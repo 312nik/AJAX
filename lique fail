@@ -1,0 +1,47 @@
+databaseChangeLog:
+  - changeSet:
+      id: UXAR1-1009
+      author: moiseev nikolay
+      changes:
+        changes:
+          - createTable:
+              tableName: destinations
+              columns:
+                - column:
+                    name: id
+                    type: BIGINT
+                    autoIncrement: true
+                    constraints:
+                      primaryKey: true
+                - column:
+                    name: airport_code
+                    type: char(3)
+                    autoIncrement: false
+                    constraints:
+                      nullable: false
+                      unique: true
+                - column:
+                    name: city
+                    type: varchar(255)
+                    constraints:
+                      nullable: false
+                - column:
+                    name: country_code
+                    type: char(2)
+                    constraints:
+                      nullable: false
+                - column:
+                    name: country_name
+                    type: varchar(255)
+                    constraints:
+                      nullable: false
+                - column:
+                    name: airport_name
+                    type: varchar(255)
+                    constraints:
+                      nullable: false
+                - column:
+                    name: timezone
+                    type: char(4)
+                    constraints:
+                      nullable: false
